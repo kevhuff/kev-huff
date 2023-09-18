@@ -19,7 +19,7 @@ This is a personal profile page for Kevin, built using React. The application sh
 React
 CSS
 TailwindCSS (for styling)
-Contributions
+$$ Contributions
 Feel free to fork this project, open a pull request, or open an issue if you have suggestions or find bugs.
 
 ## License
