@@ -27,4 +27,5 @@ MIT
 
 ## Deployment
 
-The application is deployed on GitHub Pages at the following URL: https://github.com/kevhuff/kev-huff
+The application is deployed on GitHub Pages at the following URL: 
+https://kevhuff.github.io/kev-huff/
