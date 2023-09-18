@@ -3,5 +3,130 @@
 @tailwind utilities;
 
 body {
-  background-color: #00263f;
+  background-image: url('./components/earthmoon.png'); 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-scroll-container {
+  height: 100px;
+  overflow: hidden;
+}
+
+@keyframes scrollUp {
+  0% {
+      transform: translateY(100%);
+  }
+  100% {
+      transform: translateY(-100%);
+  }
+}
+
+.scroll-text {
+  animation: scrollUp 10s linear infinite; 
+}
+.scroll-text:hover {
+  animation-play-state: paused;
+}
+ 
+.stars-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  
+  /* Random styles */
+  width: calc(3px + 4px * var(--randomSize));
+  height: calc(4px + 3px * var(--randomSize));
+  opacity: calc(0.5 * var(--randomOpacity));
+  z-index: calc(1 + 10 * var(--randomZIndex));
+  animation: 
+    randomMotion var(--randomSpeed) infinite,
+    shimmer 1.5s infinite;
+  top: calc(100% * var(--randomY));
+  left: calc(100% * var(--randomX));
+  animation-delay: calc(-1s * var(--randomDelay));
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 8; }
+}
+
+@keyframes shootingStar {
+  0%, 100% {
+      transform: translate(0, 0);
+      opacity: 0;
+  }
+  10% {
+      opacity: 1;
+  }
+  100% {
+      transform: translate(
+        calc(cos(var(--randomAngle)) * 100vh),
+        calc(sin(var(--randomAngle)) * 100vw)
+      );
+  }
+}
+
+.shooting-star {
+  animation: shootingStar calc(2s + 2s * var(--randomSpeed)) linear infinite;
+}
+
+@keyframes randomMotion {
+  0% {
+      transform: translate(0, 0);
+      opacity: 0;
+  }
+  10% {
+      opacity: 1;
+  }
+  100% {
+      transform: translate(
+        calc(cos(var(--randomAngle2)) * 100vw * var(--randomSpeed)),
+        calc(sin(var(--randomAngle2)) * 100vh * var(--randomSpeed))
+      );
+      opacity: 0;
+  }
+}
+
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Mobile-first (default styles are for mobile) */
+.some-class {
+  font-size: 16px;
+}
+
+/* Tablet and upwards */
+@media (min-width: 768px) {
+  .some-class {
+      font-size: 18px;
+  }
+}
+
+/* Desktop and upwards */
+@media (min-width: 1024px) {
+  .some-class {
+      font-size: 20px;
+  }
+}
+
+/* Large Desktop and upwards */
+@media (min-width: 1280px) {
+  .some-class {
+      font-size: 24px;
+  }
 }
