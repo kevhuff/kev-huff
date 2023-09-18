@@ -9,28 +9,26 @@ import Projects from './components/projects';
 import Resume from './components/resume';
 import About from './components/About';
 import StarBackground from './components/StarBackground';
-import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}> 
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div>
-        <StarBackground />  {/* This renders the starry background */}
+        <StarBackground />
         <NavBar />
         <Routes>
-          <Route path="/" element={<Hero />} exact /> 
+          <Route path="/" element={<Hero />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/socials" element={<SocialMediaSection />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/about" element={<About />} />
-          <Route path="*" element={<Redirect to="/" />} /> {/* This will redirect any unknown route back to "/" */}
         </Routes>
         <ScrollToTopButton />
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
