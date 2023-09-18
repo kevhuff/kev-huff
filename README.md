@@ -6,7 +6,7 @@ This is a personal profile page for Kevin, built using React. The application sh
 
 ![Screenshot of the profile page](/src/components/assets/portshot.png)
 
-> Replace `screenshot-link-here` with a link to a screenshot of your application, if desired.
+
 
 ## Features
 
