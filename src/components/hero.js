@@ -4,11 +4,11 @@ import { TypeAnimation } from 'react-type-animation';
 const Hero = () => {
     return (
         <div className='max-w-[800px] w-full h-screen mx-auto text-center flex flex-col justify-start items-center pt-20'>
-            <p className='font-bold p-10 ml-5 text-white text-6xl'>
+            <p className='font-bold p-10 ml-5 text-indigo-200 text-6xl'>
               Hello I'm Kevin and I'm a 
             </p>
        
-            <div className='bg-[#3b3b3b88] h-2/4 flex flex-col justify-center items-center rounded-xl'>
+            <div className='text-indigo-200  bg-[#3b3b3bae] h-2/4 flex flex-col justify-center items-center rounded-xl'>
                 <TypeAnimation
                     sequence={[
                         'Software developer',

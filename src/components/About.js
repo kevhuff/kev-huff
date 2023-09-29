@@ -10,9 +10,15 @@ const About = () => {
       <h1 className="text-sm mb-6 text-center text-white transition transform hover:text-indigo-300 hover:scale-110 duration-1000 ease-in-out">
         (hover to pause scroll)
       </h1>
-      
-      <div className="text-scroll-container m-10 w-[40%] h-[30%] overflow-visible">
-        <p className="text-xl text-indigo-200 hover:text-white hover:scale-110 duration-500 ease-in scroll-text">
+      <div>
+        <img
+          src={ProfilePic}
+          alt="Kevin's Portrait"
+          className="w-[10%] h-[20%] sm:w-[17%] p-10 rounded-full shadow-lg transition transform hover:scale-105 hover:opacity-30 duration-300 ease-in-out"
+        />
+      </div>
+      <div className="text-scroll bg-[##3b3b3bae] justify-center ml-20 w-[50%] h-[80%] overflow-hidden ">
+        <p className="text-xl text-indigo-200 hover:text-white duration-900 ease-in scroll-text">
           Hello! I'm Kevin. I started off in the automotive industry. I've spent
           the past 15 years gaining experience and skills that I feel will
           translate over to the software development world. Problem-solving,
@@ -23,15 +29,6 @@ const About = () => {
           impactful digital solutions. I've found that CSS and all its quirks
           are my favorite part of web development. I'm always looking for
           opportunities to learn and grow as a developer.
-        </p>
-      </div>
-      <img
-        src={ProfilePic}
-        alt="Kevin's Portrait"
-        className="w-[35%] h-[20%] sm:w-[27%] rounded-full shadow-lg transition transform hover:scale-105 hover:opacity-90 duration-300 ease-in-out p-5"
-        />
-      <div className="text-scroll-container m-10 w-[40%] h-[20%] overflow-visible">
-        <p className="text-xl text-indigo-200 hover:text-white hover:scale-110 duration-500 ease-in scroll-text">
           Outside of my coding ventures, I am a fervent aficionado of all things
           technology. I will forever be a continuos learner, furthering my
           knowledge is a passion. I also have a fondness for assembling
