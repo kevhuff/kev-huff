@@ -3,8 +3,8 @@ import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
     return (
-        <div className='max-w-[800px] w-full h-screen mx-auto text-center flex flex-col justify-start items-center pt-20'>
-            <p className='font-bold p-10 ml-5 text-indigo-200 text-6xl'>
+        <div className='max-w-[800px] w-full h-screen  text-center flex flex-col justify-start items-center '>
+            <p className='font-bold p-10 text-indigo-200 text-6xl'>
               Hello I'm Kevin and I'm a 
             </p>
        

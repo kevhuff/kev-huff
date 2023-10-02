@@ -139,4 +139,12 @@ body {
   .hide-on-large {
     display: none;
   }
+}/* Small screens (e.g. phones) make text not scroll for easy viewer experience  */
+@media (max-width: 640px) {
+  .scroll-text {
+    animation: none;
+      overflow-y: visible;
+  }
 }
+
+
