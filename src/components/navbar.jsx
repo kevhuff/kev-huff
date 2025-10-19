@@ -3,50 +3,56 @@ import { Link } from 'react-router-dom';
 import { HiMinus, HiMenuAlt3 } from 'react-icons/hi';
 
 const NavBar = () => {
-    const [nav, setNav] = useState(false);
+  const [nav, setNav] = useState(false);
 
-    const handleNav = () => {
-        setNav(!nav);
-    };
+  const handleNav = () => setNav(!nav);
+  const closeNavAndNavigate = () => setNav(false);
 
-    const closeNavAndNavigate = (route) => {
-        setNav(false);
-    };
+  return (
+   <div className="fixed top-0 left-0 w-full h-16 md:h-20 bg-slate-900 shadow-lg text-white z-[100] flex justify-between items-center px-4 md:px-12">
 
-    return (
-        <div className='flex justify-between items-center h-24 w-screen mx-auto px-4 text-white bg-black z-50'>
-            
-            <h1 className='w-full text-indigo-200 text-left text-3xl pl-20'>Kevin Huffman</h1>
-            
-            {/* Navigation list - hidden on small screens, displayed on large screens */}
-            <ul className='hidden lg:flex flex-row space-x-4 pr-4'>
-                {['Home', 'About', 'Contact', 'Projects', 'Socials', 'Resume'].map((text, idx) => (
-                    <li key={text} className='group p-2'>
-                        <div className='relative'>
-                            <span className='absolute top-0 left-[-1.5rem] bg-indigo-400 rounded-full w-6 h-6 flex items-center justify-center'>{idx + 1}</span>
-                            <Link to={text === 'Home' ? '/' : `/${text.toUpperCase()}`} className='px-4 py-2 bg-gray-800 rounded transition-colors duration-1000 hover:bg-indigo-300'>{text}</Link>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-            
-            {/* Hamburger icon - displayed on small screens, hidden on large screens */}
-            <div onClick={handleNav} className="z-10 relative lg:hidden">
-                {!nav ? <HiMenuAlt3 size={30} /> : <HiMinus size={30} onClick={handleNav} />}
-            </div>
-            
-            {/* Side navigation - displayed when hamburger is clicked */}
-            <ul className={nav ? 'fixed right-0 top-0 w-[40%] h-fit border-black bg-[#000300] transition-transform duration-700 ease-in-out' : 'fixed right-full top-0 w-[60%] h-full border-l border-gray-500 bg-[#000300] transition-transform duration-700 ease-in-out'}>
-                <h1 className='text-center text-3xl font-bold text-indigo-300 '>Kevin Huffman</h1>
-                {['Home', 'About', 'Contact', 'Projects', 'Socials', 'Resume'].map((text, idx) => (
-                    <div className='relative p-4 border-b border-gray-500 hover:bg-indigo-300 transition-colors duration-300' onClick={() => closeNavAndNavigate(text.toLowerCase())}>
-                        <Link key={text} to={text === 'Home' ? '/' : `/${text.toLowerCase()}`}>{text}</Link>
-                    </div>
-                ))}
-            </ul>
-            
-        </div>
-    );
+  <h1 className="text-sky-300 font-bold text-xl md:text-3xl tracking-wide">
+    Kevin Huffman
+  </h1>
+
+
+      {/* Desktop Nav */}
+      <ul className="hidden lg:flex space-x-4">
+        {['Home', 'About', 'Contact', 'Projects', 'Socials', 'Resume'].map((text, idx) => (
+          <li key={text}>
+            <Link
+              to={text === 'Home' ? '/' : `/${text.toLowerCase()}`}
+              className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-sky-500/80 hover:text-white transition duration-300"
+            >
+              {text}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Mobile Hamburger */}
+      <div onClick={handleNav} className="lg:hidden z-[101] cursor-pointer">
+        {!nav ? <HiMenuAlt3 size={30} /> : <HiMinus size={30} />}
+      </div>
+
+      {/* Mobile Side Menu */}
+      <ul
+        className={`fixed top-0 right-0 w-[60%] sm:w-[40%] h-full bg-slate-900 shadow-2xl transition-transform duration-500 ease-in-out transform ${
+          nav ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        {['Home', 'About', 'Contact', 'Projects', 'Socials', 'Resume'].map((text) => (
+          <li
+            key={text}
+            className="p-6 border-b border-slate-700 hover:bg-sky-600 transition-colors duration-300"
+            onClick={closeNavAndNavigate}
+          >
+            <Link to={text === 'Home' ? '/' : `/${text.toLowerCase()}`}>{text}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default NavBar;
